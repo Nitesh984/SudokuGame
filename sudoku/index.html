@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Recursive&family=Red+Rose&family=Sriracha&family=Ubuntu&family=Poppins&family=Raleway&display=swap"
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>SUDOKU GAME</title>
+</head>
+
+<body class="flex-row">
+
+    <div id="main__container">
+ <!-- Timer clock -->
+        <div id="Time" class="flex-row">
+            <h1 style="color:white;"><i class="fa-solid fa-clock"></i> </h1>
+            <div style="padding-left: 10px;">
+                <h1 id="clock"> 00:00:00</h1>
+            </div>
+            
+        </div>
+
+        <div id="header__controls" class="flex-row">
+            <span id="header__menu"><span id="dotMenuSpan" ><i class="fas fa-bars"></i></span></span>
+            <Span id="header__header"><img id="logo" src="images/sudoku-web-t-2.png" alt=""></Span>
+            <span id="header__submit"><span>Submit</span ></span>
+        </div>
+        <div id="dotMenu">
+            <div id="back" class="flex-row" style="justify-content: space-evenly;"><img src="images/home.svg" alt=""> Home</div>
+            <div id="newGame">New Game</div>
+            <div id="clear">Clear All</div>
+            <div id="solver"> <span id="text"></span>
+                <div id="solverMenu">
+                    <div id="solverStart">Start</div>
+                    <div id="solverWatch"> 
+                        <input type="checkbox" id="solverWatchCbox" name="solverWatchCbox" value="watch" checked>
+                        <label for="solverWatchCbox">Watch</label>
+                    </div>
+                    <div id="solverSpeed">
+                        <label for="speedRange">Speed</label>
+                        <input type="range" name="speedRange" id="speedRange" max="250" min="50" value="100">
+                    </div>
+                    <div id="solverStop">Stop</div>
+                </div>
+
+            </div>
+        </div>
+        <!-- board -->
+        <div id="board">
+
+        </div>
+        <div id="keypad" class="flex-row">
+        </div>
+    </div>
+   
+
+    <!-- home page with menu options -->
+    <div id="home">
+        <div id="header">
+            <span>
+               <img id="main-logo" src="images/sudoku-web-t-2.png" alt="">
+            </span>
+            
+            <div id="selection__size" class="selection flex-row">
+                <span class="title">Size</span>
+                <div class="options flex-row">
+                    <span data-size="4"><svg width="24" height="24" viewBox="0 0 1792 1792"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path
+                                d="M832 1024v384q0 52-38 90t-90 38h-512q-52 0-90-38t-38-90v-384q0-52 38-90t90-38h512q52 0 90 38t38 90zm0-768v384q0 52-38 90t-90 38h-512q-52 0-90-38t-38-90v-384q0-52 38-90t90-38h512q52 0 90 38t38 90zm896 768v384q0 52-38 90t-90 38h-512q-52 0-90-38t-38-90v-384q0-52 38-90t90-38h512q52 0 90 38t38 90zm0-768v384q0 52-38 90t-90 38h-512q-52 0-90-38t-38-90v-384q0-52 38-90t90-38h512q52 0 90 38t38 90z" />
+                            </svg></span>
+                     <span data-size="9"><svg width="24" height="24" viewBox="0 0 1792 1792"
+                            xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                            <path
+                                d="M512 1248v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm-640-1024v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm640 512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68zm0-512v192q0 40-28 68t-68 28h-320q-40 0-68-28t-28-68v-192q0-40 28-68t68-28h320q40 0 68 28t28 68z" />
+                            </svg></span>
+                </div>
+            </div>
+
+            <div id="selection__level" class="selection flex-row">
+                <span class="title">Level</span>
+                <div class="options" >
+                    <Span data-level=0 class="btn btn-dark">Easy</Span>
+                    <Span data-level=1 class="btn btn-dark">Medium</Span>
+                    <Span data-level=2 class="btn btn-dark">Hard</Span>
+                </div>
+            </div>
+            <div class="link">
+                <a href="https://www.conceptispuzzles.com/index.aspx?uri=puzzle/sudoku/techniques" >How To Play?</a>
+            </div>
+            <div id="start" class="btn btn-dark">start</div>
+        </div>
+    </div>
+
+
+    <script src="global.js"></script>
+    <script src="combinations.js"></script>
+    <script src="validate.js"></script>
+    <script src="board.js"></script>
+    <script src="view.js"></script>
+    <script src="digger.js"></script>
+    <script src="userActions.js"></script>
+    <script src="solver.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // timer function
+        var start =document.getElementById("start");
+        start.addEventListener('click',() => {
+        var timerVariable = setInterval(countUpTimer, 1000);
+        var totalSeconds = 0;
+        
+        function countUpTimer() {
+        ++totalSeconds;
+        var hour = Math.floor(totalSeconds / 3600);
+        if(hour<=9)
+        {
+            hour='0'+hour;
+        }
+        var minute = Math.floor((totalSeconds - hour * 3600) / 60);
+        if(minute<=9)
+        {
+            minute='0'+minute;
+        }
+        var seconds = totalSeconds - (hour * 3600 + minute * 60);
+        if(seconds<=9)
+        {
+            seconds='0'+seconds;
+        }
+        document.getElementById("clock").innerHTML = hour + ":" + minute + ":" + seconds;
+             }
+         });
+         
+        //   Grid
+
+         let size=9;
+         function deletealign()
+         {
+                 for(let i=0;i<size;i++){
+                 for(let j=0;j<size;j++){
+                        let element = document.getElementById(`${i}${j}`);
+                        element.classList.remove('align');
+                    }
+                 }
+         }
+             let boardElement = document.querySelector('#board')
+              boardElement.addEventListener('click',() => {
+                 deletealign();
+                 var selected= boardElement.getElementsByClassName("selected");
+                 var value =selected[0].id;
+                 for(let i=0;i<size;i++){
+                 for(let j=0;j<size;j++){
+                     if(i==value.slice(0,1))
+                     {
+                        let element = document.getElementById(`${i}${j}`);
+                        element.classList.add('align');
+                     }
+                     else if(j==value%10)
+                     {
+                        let element = document.getElementById(`${i}${j}`);
+                         element.classList.add('align');
+                     }
+                    }
+                 }
+              })
+
+                   
+    
+    </script>
+</body>
+
+</html>
