@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .flex-col {
@@ -60,9 +61,8 @@ html {
         #main__container {
             display: none;
             width: 60vh;
-            height: 80vh;
+            height: 70vh;
             position: relative;
-
             #header__controls {
                 height: 10vh;
                 width: 100%;
