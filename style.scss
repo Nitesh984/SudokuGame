@@ -46,23 +46,27 @@
 }
 
 html {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
     user-select: none;
 
     body {
         height: 100%;
         width: 100%;
-        background-image: url("images/bg.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-size: 100% 100%;
+        overflow: hidden;
+        overflow-y: unset;
 
         #main__container {
+            margin:20px auto;
             display: none;
             width: 60vh;
             height: 70vh;
             position: relative;
+            overflow:hidden;
+            overflow-y: unset;
             #header__controls {
                 height: 10vh;
                 width: 100%;
@@ -331,6 +335,8 @@ html {
 
                 .options {
                     width: 70%;
+                    color: white;
+                
                 }
             }
 

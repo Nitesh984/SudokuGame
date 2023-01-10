@@ -131,7 +131,7 @@ function initActions() {
         if (this.parentNode.parentNode.id == "selection__level") {
             remaining.forEach(x => {
                 x.style.background = "none"
-                x.style.color = "black"
+                x.style.color = "white"
             })
             this.style.color = "white";
             this.style.background = "#0097e6";
@@ -139,7 +139,7 @@ function initActions() {
             user__level[1] = this.textContent;
 
         } else if (this.parentNode.parentNode.id == "selection__size") {
-            remaining.forEach(x => x.style.color = "black")
+            remaining.forEach(x => x.style.color = "white")
             this.style.color = "#0097e6";
             user__size = parseInt(this.dataset["size"])
         }
